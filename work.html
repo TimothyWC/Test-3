@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work — GTA Web Works</title>
+<meta name="description" content="Selected projects by GTA Web Works. Custom websites for small businesses across the Greater Toronto Area." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  .case {
+    padding: 120px var(--gutter);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .case-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .case-header {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+  }
+
+  .case-meta > div {
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .case-meta > div:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case-meta strong {
+    color: var(--ink);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 7vw, 108px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+
+  .case-title em { color: var(--accent); }
+
+  .case-desc {
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.6;
+    color: var(--gray);
+    max-width: 640px;
+  }
+
+  /* Cornerstone image grid */
+  .case-gallery {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 140px;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .case-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .gallery-item {
+    overflow: hidden;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .g-1 { grid-column: span 8; grid-row: span 3; }
+  .g-2 { grid-column: span 4; grid-row: span 3; }
+  .g-3 { grid-column: span 4; grid-row: span 3; }
+  .g-4 { grid-column: span 4; grid-row: span 3; }
+  .g-5 { grid-column: span 4; grid-row: span 3; }
+
+  /* Good Guys typographic showcase */
+  .case-showcase-dark {
+    background: #1a1a1a;
+    color: #f5f3ee;
+    padding: 100px 60px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+
+  .case-showcase-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245, 243, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 243, 238, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .case-showcase-dark > * { position: relative; z-index: 2; }
+
+  .case-showcase-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(245, 243, 238, 0.15);
+    margin-bottom: 48px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(245, 243, 238, 0.5);
+  }
+
+  .case-showcase-dark h3 {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 8vw, 140px);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    margin-bottom: 64px;
+  }
+
+  .case-showcase-dark h3 em {
+    font-style: italic;
+    color: #fbbf24;
+  }
+
+  .case-showcase-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+
+  .case-showcase-features > div {
+    padding-top: 20px;
+    border-top: 1px solid rgba(245, 243, 238, 0.15);
+  }
+
+  .case-showcase-features h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fbbf24;
+    margin-bottom: 12px;
+  }
+
+  .case-showcase-features p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(245, 243, 238, 0.75);
+  }
+
+  .case-showcase-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(245, 243, 238, 0.15);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(245, 243, 238, 0.6);
+  }
+
+  .case-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .case-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .case-service-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--gray);
+  }
+
+  @media (max-width: 900px) {
+    .case { padding: 60px var(--gutter-mobile); }
+    .case-header { grid-template-columns: 1fr; gap: 32px; }
+    .case-gallery { grid-auto-rows: 200px; }
+    .g-1, .g-2, .g-3, .g-4, .g-5 { grid-column: span 12; grid-row: span 1; }
+    .case-showcase-dark { padding: 60px 32px; }
+    .case-showcase-features { grid-template-columns: 1fr; gap: 24px; }
+    .case-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ========== MORE SOON ========== */
+  .more-soon {
+    padding: 140px var(--gutter);
+    text-align: center;
+    position: relative;
+  }
+
+  .more-soon-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .more-soon h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 24px 0 32px;
+  }
+
+  .more-soon h2 em { color: var(--accent); }
+
+  .more-soon p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--gray);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+
+  @media (max-width: 768px) {
+    .more-soon { padding: 80px var(--gutter-mobile); }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-brand-mark">
+      <svg viewBox="0 0 28 28" fill="none">
+        <rect x="2" y="2" width="24" height="24" stroke="#0a0a0a" stroke-width="1.5"/>
+        <rect x="8" y="8" width="12" height="12" fill="#c8311c"/>
+      </svg>
+    </div>
+    <span>GTA Web Works</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Index</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta-wrap">
+    <a href="contact.html" class="nav-cta">Start a Project</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-meta reveal">
+      <div><span>Section</span><strong>Work / 02</strong></div>
+      <div><span>Projects</span><strong>02 Live</strong></div>
+      <div><span>Year</span><strong>2026</strong></div>
+      <div><span>Status</span><strong>Active</strong></div>
+    </div>
+    <h1 class="reveal reveal-delay-1">Selected<br><em>work.</em></h1>
+  </div>
+</header>
+
+<!-- CASE 01: CORNERSTONE -->
+<section class="case">
+  <div class="case-inner">
+    <div class="case-header reveal">
+      <div class="case-meta">
+        <div><span>Client</span><strong>Cornerstone Interlock<br>& Landscape Design</strong></div>
+        <div><span>Industry</span><strong>Landscaping</strong></div>
+        <div><span>Location</span><strong>Vaughan, ON</strong></div>
+        <div><span>Year</span><strong>2026</strong></div>
+        <div><span>Project</span><strong>Case / 01</strong></div>
+      </div>
+      <div>
+        <h2 class="case-title">Cornerstone<br><em>Interlock.</em></h2>
+        <p class="case-desc">A family-owned interlock and landscape design studio in Vaughan with 4.5-star Google reviews, zero online presence, and genuinely beautiful work. We built them an editorial luxury website that finally matches the craft behind the projects. Real reviews, real photos, custom typography, one standard.</p>
+      </div>
+    </div>
+
+    <div class="case-gallery reveal">
+      <div class="gallery-item g-1"><img src="images/project-01.webp" alt="Cornerstone granite entryway project" /></div>
+      <div class="gallery-item g-2"><img src="images/project-02.webp" alt="Cornerstone slate flagstone porch" /></div>
+      <div class="gallery-item g-3"><img src="images/project-03.webp" alt="Cornerstone two-tone walkway" /></div>
+      <div class="gallery-item g-4"><img src="images/project-05.webp" alt="Cornerstone custom pergola" /></div>
+      <div class="gallery-item g-5"><img src="images/project-04.webp" alt="Cornerstone interlock landscape project" /></div>
+    </div>
+
+    <div class="case-bottom">
+      <div class="case-services">
+        <span class="case-service-tag">Custom Design</span>
+        <span class="case-service-tag">Editorial Layout</span>
+        <span class="case-service-tag">Photo Grid</span>
+        <span class="case-service-tag">Testimonials</span>
+        <span class="case-service-tag">Mobile First</span>
+        <span class="case-service-tag">Vercel Hosting</span>
+      </div>
+      <a href="https://cornerstone-landscaping.vercel.app" target="_blank" class="btn-text">Visit Live Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE 02: GOOD GUYS COMPUTER -->
+<section class="case">
+  <div class="case-inner">
+    <div class="case-header reveal">
+      <div class="case-meta">
+        <div><span>Client</span><strong>Good Guys Computer</strong></div>
+        <div><span>Industry</span><strong>Retail / Repair</strong></div>
+        <div><span>Location</span><strong>Richmond Hill, ON</strong></div>
+        <div><span>Year</span><strong>2026</strong></div>
+        <div><span>Project</span><strong>Case / 02</strong></div>
+      </div>
+      <div>
+        <h2 class="case-title">Good Guys<br><em>Computer.</em></h2>
+        <p class="case-desc">Richmond Hill's trusted neighborhood computer shop. Known for their no-fix-no-pay promise and a wall of loyal returning customers. We built them a warm, retro-inspired site with terminal aesthetics and family-business charm, highlighting everything that makes them different from a Geek Squad counter.</p>
+      </div>
+    </div>
+
+    <div class="case-showcase-dark reveal">
+      <div class="case-showcase-top">
+        <span>$ goodguys ~ diagnostics</span>
+        <span>★★★★★ / 5.0</span>
+      </div>
+      <h3>No fix,<br>no <em>pay.</em></h3>
+      <div class="case-showcase-features">
+        <div>
+          <h4>— The Promise</h4>
+          <p>If we can't solve it, you don't owe us a cent. Free estimates on every single repair, every time.</p>
+        </div>
+        <div>
+          <h4>— The Shop</h4>
+          <p>Over 500 new, used and refurbished computers in stock at any time. Honest pricing, real technicians.</p>
+        </div>
+        <div>
+          <h4>— The People</h4>
+          <p>Family-run, with decades of honest service behind them. Walk in, ask questions, get real answers.</p>
+        </div>
+      </div>
+      <div class="case-showcase-bottom">
+        <span>Richmond Hill, ON</span>
+        <span>Est. 2026 / goodguyscomputer.ca</span>
+      </div>
+    </div>
+
+    <div class="case-bottom">
+      <div class="case-services">
+        <span class="case-service-tag">Custom Design</span>
+        <span class="case-service-tag">Retro Aesthetic</span>
+        <span class="case-service-tag">Terminal UI</span>
+        <span class="case-service-tag">Testimonials</span>
+        <span class="case-service-tag">Mobile First</span>
+        <span class="case-service-tag">Vercel Hosting</span>
+      </div>
+      <a href="https://test-website-teal-two.vercel.app/" target="_blank" class="btn-text">Visit Live Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- MORE SOON -->
+<section class="more-soon">
+  <div class="more-soon-inner reveal">
+    <span class="eyebrow">— Next / 03</span>
+    <h2>More projects<br><em>coming soon.</em></h2>
+    <p>We're actively taking on new clients. If you'd like to be our next case study, we'd love to hear from you.</p>
+    <a href="contact.html" class="btn btn-primary">Start a Project</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-brand">
+          <div class="nav-brand-mark">
+            <svg viewBox="0 0 28 28" fill="none">
+              <rect x="2" y="2" width="24" height="24" stroke="#0a0a0a" stroke-width="1.5"/>
+              <rect x="8" y="8" width="12" height="12" fill="#c8311c"/>
+            </svg>
+          </div>
+          <span>GTA Web Works</span>
+        </div>
+        <p>A web design studio building custom websites for small businesses across the Greater Toronto Area. No templates, no lock-ins, no monthly fees.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="index.html">Index</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service Area</h4>
+        <ul>
+          <li>Vaughan</li>
+          <li>Richmond Hill</li>
+          <li>Newmarket</li>
+          <li>Markham</li>
+          <li>Toronto</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6476361859">(647) 636-1859</a></li>
+          <li><a href="mailto:team.gtawebworks@gmail.com">team.gtawebworks@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-big-type">Let's <span>work.</span></div>
+    <div class="footer-bottom">
+      <span>© 2026 GTA Web Works</span>
+      <span>Built in Vaughan, Ontario</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
