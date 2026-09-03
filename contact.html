@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | GTA Web Works</title>
+  <meta name="description" content="Text or call (647) 636-1859, or email team.gtawebworks@gmail.com. We reply within a day.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">GTA Web Works</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <a class="header-phone" href="tel:+16476361859">(647) 636-1859</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-intro wrap">
+    <h1>Contact</h1>
+    <p class="lead">Text is fastest. Calls and emails are fine too. Either way you'll hear back within a day, usually sooner.</p>
+  </section>
+
+  <section class="section wrap">
+    <ul class="contact-big">
+      <li><span>Text or call</span><a href="tel:+16476361859">(647) 636-1859</a></li>
+      <li><span>Email</span><a href="mailto:team.gtawebworks@gmail.com">team.gtawebworks@gmail.com</a></li>
+      <li><span>Based in</span><span class="big">Vaughan, Ontario</span></li>
+    </ul>
+  </section>
+
+  <section class="section wrap">
+    <div class="sheet">
+      <div>
+        <h2>Or send this</h2>
+        <p class="muted mt-2">A few details help us reply with something useful instead of a list of questions.</p>
+      </div>
+
+      <!--
+        This form opens the visitor's email app with a pre-filled message (mailto).
+        To make it submit silently instead, sign up at formspree.io, then:
+          1. replace action="#" with your Formspree endpoint
+          2. change method to "POST"
+          3. delete the <script> at the bottom of this page
+      -->
+      <form class="form" id="contact-form" action="#" method="get" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="reach">Phone or email</label>
+          <input id="reach" name="reach" type="text" autocomplete="tel" required>
+          <p class="hint">Whichever you'd rather we use.</p>
+        </div>
+        <div class="field">
+          <label for="package">Package you're thinking about</label>
+          <select id="package" name="package">
+            <option>Not sure yet</option>
+            <option>Basic, $400</option>
+            <option>Standard, $750</option>
+            <option>Premium, $1,200</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">What you need</label>
+          <textarea id="message" name="message" required></textarea>
+          <p class="hint">What the business does, whether you already have a domain, and any sites you like the look of.</p>
+        </div>
+        <button class="btn" type="submit">Send</button>
+        <p class="hint" id="form-note">Opens your email app with the message filled in.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="sheet">
+      <h2>What happens after</h2>
+      <ol class="steps">
+        <li><strong>We reply within a day</strong><span>Usually within a few hours. We'll ask a couple of questions.</span></li>
+        <li><strong>Free 20-minute call</strong><span>Or a message thread if you'd rather. Goals, pages, photos, timeline.</span></li>
+        <li><strong>Quote</strong><span>Package, timeline and what's included, in writing. 50% to start.</span></li>
+        <li><strong>First draft in 3 to 5 days</strong><span>Then revisions until it's right.</span></li>
+        <li><strong>Launch</strong><span>Balance is paid, site goes live on your domain, and it's yours.</span></li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="wordmark" href="index.html">GTA Web Works</a>
+      <p>Custom websites for small businesses across the Greater Toronto Area. One-time price, no monthly fee, you own the site.</p>
+    </div>
+    <ul>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <ul>
+      <li><a href="tel:+16476361859">(647) 636-1859</a></li>
+      <li><a href="mailto:team.gtawebworks@gmail.com">team.gtawebworks@gmail.com</a></li>
+      <li>Vaughan, Ontario</li>
+    </ul>
+    <div class="bottom">
+      <span>&copy; 2026 GTA Web Works</span>
+      <span>Vaughan, Richmond Hill, Markham, Newmarket and Toronto</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+      var name = v('name'), business = v('business'), reach = v('reach'),
+          pkg = v('package'), message = v('message');
+      if (!name || !reach || !message) {
+        document.getElementById('form-note').textContent = 'Please fill in your name, how to reach you, and what you need.';
+        return;
+      }
+      var subject = 'Website for ' + (business || name);
+      var body = 'Name: ' + name + '\n' +
+                 'Business: ' + (business || '(not given)') + '\n' +
+                 'Reach me at: ' + reach + '\n' +
+                 'Package: ' + pkg + '\n\n' + message;
+      window.location.href = 'mailto:team.gtawebworks@gmail.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
+
+</body>
+</html>
